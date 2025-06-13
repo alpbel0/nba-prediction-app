@@ -5,6 +5,8 @@ import plotly.graph_objects as go
 import pickle
 import os
 import joblib
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
 
 # CSS stilini yükle
 st.markdown("""
@@ -67,14 +69,12 @@ class HybridNBAPredictor:
                         st.success("✅ Model ve scaler başarıyla yüklendi!")
                     else:
                         st.warning("⚠️ Scaler dosyası bulunamadı - varsayılan scaler kullanılıyor")
-                        from sklearn.preprocessing import StandardScaler
                         self.scaler = StandardScaler()
                         np.random.seed(42)
                         X_demo = np.random.uniform(-1, 1, (100, 17))
                         self.scaler.fit(X_demo)
                 except Exception as scaler_error:
                     st.warning(f"⚠️ Scaler yükleme hatası: {scaler_error} - Varsayılan scaler kullanılıyor")
-                    from sklearn.preprocessing import StandardScaler
                     self.scaler = StandardScaler()
                     np.random.seed(42)
                     X_demo = np.random.uniform(-1, 1, (100, 17))
@@ -89,8 +89,6 @@ class HybridNBAPredictor:
                 ]
             else:
                 st.error(f"❌ Model dosyası bulunamadı! Lütfen '{model_path}' dosyasını kontrol edin.")
-                from sklearn.linear_model import LogisticRegression
-                from sklearn.preprocessing import StandardScaler
                 self.model = LogisticRegression(random_state=42)
                 self.scaler = StandardScaler()
                 np.random.seed(42)
