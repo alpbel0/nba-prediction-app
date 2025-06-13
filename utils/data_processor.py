@@ -11,14 +11,16 @@ class DataProcessor:
         self.load_feature_info()
     
     def load_feature_info(self):
-        """Eğitim verisinden feature bilgilerini yükle"""
-        try:
-            with open('model/X_train_final_scaled.pkl', 'rb') as f:
-                X_train = pickle.load(f)
-                self.feature_columns = X_train.columns.tolist()
-                print(f"✅ {len(self.feature_columns)} feature yüklendi")
-        except Exception as e:
-            print(f"❌ Feature bilgileri yüklenemedi: {e}")
+        """Feature bilgilerini manuel olarak tanımla"""
+        # Model için gerekli 17 feature
+        self.feature_columns = [
+            'HOME_W_PCT', 'HOME_NETRTG_LAST_8', 'HOME_NETRTG_DIFF', 'HOME_TS_PCT_LAST_8',
+            'HOME_STAR_FORM_LAST_8', 'VISITOR_W_PCT', 'VISITOR_NETRTG_LAST_8', 
+            'VISITOR_NETRTG_DIFF', 'VISITOR_TS_PCT_LAST_8', 'VISITOR_STAR_FORM_LAST_8',
+            'DIFF_W_PCT', 'DIFF_NETRTG_LAST_8', 'DIFF_NETRTG_DIFF', 'DIFF_TS_PCT_LAST_8',
+            'DIFF_STAR_FORM_LAST_8', 'HOME_B2B', 'VISITOR_B2B'
+        ]
+        print(f"✅ {len(self.feature_columns)} feature tanımlandı")
     
     def create_team_features(self, home_team_stats, visitor_team_stats):
         """
