@@ -1,0 +1,19 @@
+# Büyük veri dosyalarını ignore et
+*.pkl
+games_details.csv
+*.csv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs
+*.log
+*.txt
+
+# Geçici dosyalar
+temp_*.json
