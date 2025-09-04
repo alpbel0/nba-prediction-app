@@ -13,7 +13,7 @@ __pycache__/
 
 # Logs
 *.log
-*.txt
+logs-*.txt
 
 # Geçici dosyalar
 temp_*.json
@@ -26,3 +26,7 @@ Final/
 
 # Büyük resimler
 *.png
+
+# Streamlit app dosyalarını dahil et (ignore'dan çıkar)
+!streamlit_app/requirements.txt
+!streamlit_app/runtime.txt
