@@ -1,7 +1,7 @@
 # Büyük veri dosyalarını ignore et
 *.pkl
-games_details.csv
 *.csv
+*.ipynb
 
 # Python cache
 __pycache__/
@@ -17,3 +17,12 @@ __pycache__/
 
 # Geçici dosyalar
 temp_*.json
+
+# Büyük klasörler
+Before_Modeling/
+Cleaned/
+Filtered/
+Final/
+
+# Büyük resimler
+*.png
